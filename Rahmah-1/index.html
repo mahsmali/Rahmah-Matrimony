@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmah Global Matrimony - Sri Lanka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header
+        style="height: 120px; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%); backdrop-filter: blur(2px);">
+        <!-- Radio Moved Internal -->
+
+        <div class="container nav-container"
+            style="position: relative; padding-top: 15px; display: flex; align-items: center; justify-content: space-between;">
+            <!-- Left: Clock Only (Time & Date Vertical) -->
+            <div class="header-clock"
+                style="display: flex; flex-direction: column; gap: 0px; align-items: flex-start; justify-content: center; margin-right: auto;">
+                <div id="digital-clock-time"
+                    style="font-family: 'Nunito', sans-serif; font-size: 1.2rem; font-weight: 800; color: white; letter-spacing: 2px;">
+                </div>
+                <div id="digital-clock-date"
+                    style="font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 600; color: #ccc; letter-spacing: 1px;">
+                </div>
+            </div>
+
+            <!-- Right: Logo -->
+            <div class="logo-wrapper" style="display: flex; align-items: center; gap: 15px;">
+                <div class="logo-text"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 5px; text-align: right;">
+                    <span
+                        style="font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.8rem; color: #E0AA3E; letter-spacing: 2px; line-height: 1; text-shadow: 0 1px 0 #8b6c2c, 0 2px 0 #5e4b20, 0 3px 0 #3a2e12, 0 4px 0 #1a1508, 0 5px 10px rgba(0,0,0,0.5); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));">RAHMAH
+                        GLOBAL MATRIMONY</span>
+                    <span
+                        style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem; color: white; letter-spacing: 5.5px; text-transform: uppercase; line-height: 1;">SRI
+                        LANKA</span>
+                </div>
+                <div class="logo">
+                    <img src="assets/images/logo.png" class="logo-embossed" alt="Rahmah Global">
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="vertical-sidebar"
+                style="position: absolute; top: 100%; left: 0; margin-top: 10px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+                <nav>
+                    <ul
+                        style="display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; margin: 0;">
+                        <li><a href="index.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Home</a></li>
+                        <li><a href="membership.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Pricing</a></li>
+                        <li><a href="advertise.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Advertisers</a></li>
+                        <li><a href="register.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Login / Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="assets/images/hero-wedding.png" alt="Sri Lankan Wedding">
+        </div>
+        <div class="hero-overlay"></div>
+        <!-- Lift Up 150px approx by removing padding margin -->
+        <div class="container hero-content lift-up" style="transform: translateX(15px); margin-top: -150px;">
+            <h1 style="margin-bottom: 10px;">Find Your Soulmate in <br><span class="text-gradient">Sri Lanka &
+                    Beyond</span></h1>
+            <p style="margin-bottom: 25px;">The Most Trusted Matrimony Service for Sri Lankan Muslims. Connecting Hearts
+                Globally.</p>
+            <!-- Central Widget Container -->
+            <!-- Search Widget Restore (Lifted) -->
+            <div class="search-widget"
+                style="width: 100%; max-width: 900px; border-radius: 50px; padding: 8px; display: flex; flex-wrap: nowrap; align-items: center; gap: 10px; background: rgba(30,30,30,0.9); backdrop-filter: blur(10px); border: 1px solid #444; margin-bottom: 15px;">
+
+                <div class="select-wrapper">
+                    <select id="search-gender"
+                        style="border-radius: 50px; height: 50px; padding: 0 40px 0 20px; border: 1px solid #555; background: rgba(0,0,0,0.5); color: white; text-align: center; text-align-last: center;">
+                        <option value="">I'm looking for a</option>
+                        <option value="Bride">Bride</option>
+                        <option value="Groom">Groom</option>
+                    </select>
+                </div>
+
+                <div class="select-wrapper">
+                    <select id="search-age"
+                        style="border-radius: 50px; height: 50px; padding: 0 40px 0 20px; border: 1px solid #555; background: rgba(0,0,0,0.5); color: white; text-align: center; text-align-last: center;">
+                        <option value="">Age: Any</option>
+                        <option value="18-25">18 - 25</option>
+                        <option value="25-30">25 - 30</option>
+                        <option value="30-40">30 - 40</option>
+                    </select>
+                </div>
+
+                <div class="select-wrapper">
+                    <select id="search-location"
+                        style="border-radius: 50px; height: 50px; padding: 0 40px 0 20px; border: 1px solid #555; background: rgba(0,0,0,0.5); color: white; text-align: center; text-align-last: center;">
+                        <option value="">Location: Any</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="UAE">UAE</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </div>
+
+                <i class="fas fa-arrow-right"
+                    style="color: var(--accent-gold); font-size: 1.5rem; animation: bounceRight 1s infinite; margin: 0 5px;"></i>
+                <button class="btn"
+                    style="border-radius: 50px; height: 50px; padding: 0 35px; font-weight: 900; white-space: nowrap;">SEARCH
+                    NOW</button>
+            </div>
+
+            <!-- Marquee (20px under Search) -->
+            <!-- Marquee (Slanted & Thick) -->
+            <div class="d-3d-widget"
+                style="width: 100%; max-width: 900px; height: 60px; overflow: hidden; background: rgba(0,0,0,0.7); border: 2px solid var(--accent-gold); border-bottom: 15px solid var(--accent-gold); border-radius: 40px; display: flex; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.6); transform: perspective(1000px) rotateX(15deg) skewX(-15deg); margin-top: 20px;">
+                <div class="marquee-text"
+                    style="display: inline-flex; align-items: center; gap: 40px; animation: marquee 60s linear infinite;">
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">REGISTRATION IS 100% FREE!</span>
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">REGISTER TODAY!</span>
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">NO HIDDEN CHARGES!</span>
+                    <!-- Loop -->
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">REGISTRATION IS 100% FREE!</span>
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">REGISTER TODAY!</span>
+                    <img src="assets/images/logo.png" class="logo-embossed spin-horizontal"
+                        style="width: 30px; height: 30px;">
+                    <span style="color: white; font-weight: 800; white-space: nowrap;">NO HIDDEN CHARGES!</span>
+                </div>
+            </div>
+
+            <!-- Radio Player (Center Below Marquee - Smaller & 3D) -->
+            <div style="margin-top: 40px; display: flex; justify-content: center; width: 100%;">
+                <div class="quran-widget logo-embossed"
+                    style="background: linear-gradient(180deg, #5e4b20 0%, #0a0a0a 100%); padding: 5px 20px; border-radius: 40px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--accent-gold); border-bottom: 8px solid var(--accent-gold); backdrop-filter: blur(10px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); transform: perspective(800px) rotateX(15deg) skewX(-10deg) scale(0.9);">
+                    <div
+                        style="width: 6px; height: 6px; background: red; border-radius: 50%; box-shadow: 0 0 10px red; animation: pulse 1.5s infinite;">
+                    </div>
+                    <span style="color: white; font-weight: bold; font-size: 0.8rem;">LIVE ISLAMIC RADIO</span>
+                    <audio controls style="height: 25px; width: 180px; border-radius: 20px;">
+                        <source src="https://qurango.net/radio/tarateel" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <style>
+            /* Marquee Animations */
+            /* Seamless Marquee Animation */
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0%);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            @keyframes bounceRight {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                50% {
+                    transform: translateX(5px);
+                }
+            }
+
+            @keyframes spinSlow {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes pulse {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            /* Font settings for the marquee text */
+            .marquee-text {
+                font-size: 1.1rem;
+                font-weight: 800;
+                color: white;
+                text-shadow: 0 0 5px var(--accent-gold);
+                white-space: nowrap;
+                text-transform: uppercase;
+            }
+        </style>
+        </div>
+    </section>
+
+    <!-- Profiles Section (New Stack Design) -->
+    <section class="profiles" style="padding: 100px 0; overflow: hidden;">
+        <div class="container">
+            <div class="section-title" style="text-align: center; margin-bottom: 30px;">
+                <h2 style="font-size: 2.8rem; text-transform: uppercase; font-weight: 900;">New <span
+                        class="text-gradient">Members</span></h2>
+                <div
+                    style="width: 80px; height: 5px; background: var(--accent-gold); margin: 15px auto; border-radius: 5px;">
+                </div>
+                <p style="color: #888; margin-top: 15px;">Meet our newest verified members from Sri Lanka and abroad.
+                </p>
+            </div>
+
+            <div class="rahmah-bottle-container" style="margin-top: 40px;">
+                <div class="rahmah-glass-body"></div>
+                <div class="rahmah-bottle" id="members-bottle" onclick="rotateMembers(90)">
+                    <!-- Face 1: Amina -->
+                    <div class="rahmah-bottle-label label-1">
+                        <div class="profile-img"
+                            style="width: 100%; height: 200px; border-radius: 20px; overflow: hidden; margin-bottom: 15px;">
+                            <img src="assets/images/avatar-1.png" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 35px; height: 35px; margin-bottom: 10px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Amina, 24</h3>
+                        <p style="color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;">Teacher</p>
+                        <p style="color: #aaa; margin-bottom: 15px; font-size: 0.8rem;">Colombo, Sri Lanka</p>
+                        <a href="membership.html" class="btn" style="width: 100%; font-size: 0.75rem;">Unlock Profile
+                            🔒</a>
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 2: Ahmed -->
+                    <div class="rahmah-bottle-label label-2">
+                        <div class="profile-img"
+                            style="width: 100%; height: 200px; border-radius: 20px; overflow: hidden; margin-bottom: 15px;">
+                            <img src="assets/images/avatar-2.png" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 35px; height: 35px; margin-bottom: 10px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Ahmed, 28</h3>
+                        <p style="color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;">Software Engineer</p>
+                        <p style="color: #aaa; margin-bottom: 15px; font-size: 0.8rem;">Kandy, Sri Lanka</p>
+                        <a href="membership.html" class="btn" style="width: 100%; font-size: 0.75rem;">Unlock Profile
+                            🔒</a>
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 3: Fatima -->
+                    <div class="rahmah-bottle-label label-3">
+                        <div class="profile-img"
+                            style="width: 100%; height: 200px; border-radius: 20px; overflow: hidden; margin-bottom: 15px;">
+                            <img src="assets/images/avatar-1.png" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 35px; height: 35px; margin-bottom: 10px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Fatima, 22</h3>
+                        <p style="color: var(--accent-gold); font-weight: 700; font-size: 0.9rem;">Medical Student</p>
+                        <p style="color: #aaa; margin-bottom: 15px; font-size: 0.8rem;">UAE, Dubai</p>
+                        <a href="membership.html" class="btn" style="width: 100%; font-size: 0.75rem;">Unlock Profile
+                            🔒</a>
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 4: Join Rahmah -->
+                    <div class="rahmah-bottle-label label-4">
+                        <div style="margin: 40px 0; text-align: center;">
+                            <i class="fas fa-users"
+                                style="font-size: 4rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                            <h3 style="color: white;">Join These Members</h3>
+                            <p style="color: #ccc; margin-top: 10px; font-size: 0.9rem;">Create your profile for free
+                                and start searching today.</p>
+                        </div>
+                        <a href="register.html" class="btn" style="width: 100%; padding: 15px;">Register Free</a>
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                let membersRotation = 0;
+                function rotateMembers(deg) {
+                    membersRotation += deg;
+                    document.getElementById('members-bottle').style.transform = `rotateY(${membersRotation}deg)`;
+                }
+            </script>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase;">About Us</h2>
+            <div style="width: 60px; height: 4px; background: var(--accent-gold); margin: 15px auto;"></div>
+            <p style="color: #ccc; max-width: 800px; margin: 20px auto; line-height: 1.8;">
+                Rahmah Global stands as the global leader in Muslim matchmaking, providing a trusted platform to connect
+                individuals seeking meaningful, lifelong partnerships. With a focus on cultural values and modern
+                matchmaking technology, we serve a diverse Muslim community worldwide.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Rahmah (Vertical 3D Post Design) -->
+    <section class="vertical-post-section" style="padding: 80px 0;">
+        <div class="container" style="text-align: center;">
+            <div class="section-title">
+                <h2 style="font-size: 2.8rem; text-transform: uppercase; font-weight: 900;">Why Choose <span
+                        class="text-gradient">Rahmah?</span></h2>
+                <div
+                    style="width: 80px; height: 5px; background: var(--accent-gold); margin: 15px auto; border-radius: 5px;">
+                </div>
+            </div>
+
+            <div class="vertical-post-container" id="features-stack-container">
+                <div class="post-stack" id="features-stack">
+                    <!-- Post 1 -->
+                    <div class="post-card color-1 active" data-index="0">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Verified Profiles</h3>
+                        <p>We manually screen every registration to ensure a safe, secure, and genuine matchmaking
+                            experience.</p>
+                        <img src="assets/images/logo.png" class="post-logo logo-embossed" alt="Rahmah Logo">
+                    </div>
+
+                    <!-- Post 2 -->
+                    <div class="post-card color-2 next" data-index="1">
+                        <i class="fas fa-heart"></i>
+                        <h3>Lankan Heritage</h3>
+                        <p>Deeply rooted in Sri Lankan Muslim culture, connecting hearts while respecting our
+                            traditions.</p>
+                        <img src="assets/images/logo.png" class="post-logo logo-embossed" alt="Rahmah Logo">
+                    </div>
+
+                    <!-- Post 3 -->
+                    <div class="post-card color-3 last" data-index="2">
+                        <i class="fas fa-gem"></i>
+                        <h3>Elite Service</h3>
+                        <p>Experience personalized matchmaking with dedicated managers and premium features for your
+                            success.</p>
+                        <img src="assets/images/logo.png" class="post-logo" alt="Rahmah Logo">
+                    </div>
+                </div>
+
+                <div class="post-nav-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials-section" style="background: #111; padding: 100px 0; overflow: hidden;">
+        <div class="container">
+            <div class="section-title" style="text-align: center; margin-bottom: 30px;">
+                <h2 style="font-size: 2.8rem; text-transform: uppercase;">Real <span class="text-gradient">Success
+                        Stories</span></h2>
+                <div
+                    style="width: 80px; height: 5px; background: var(--accent-gold); margin: 15px auto; border-radius: 5px;">
+                </div>
+                <p style="color: #888; margin-top: 15px;">Alhamdulillah, connecting hearts globally.</p>
+            </div>
+
+            <div class="rahmah-bottle-container" style="margin-top: 40px;">
+                <div class="rahmah-glass-body"></div>
+                <div class="rahmah-bottle" id="stories-bottle" onclick="rotateStories(90)">
+                    <!-- Face 1: Mohamed & Fathima -->
+                    <div class="rahmah-bottle-label label-1">
+                        <img src="assets/images/story-1.png"
+                            style="width: 100%; height: 180px; border-radius: 20px; object-fit: cover; margin-bottom: 15px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Mohamed & Fathima</h3>
+                        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 10px;">Married Jan 2025
+                        </p>
+                        <p style="color: #ccc; font-style: italic; font-size: 0.8rem; text-align: center;">"Rahmah's
+                            privacy features made us comfortable. Our families clicked instantly!"</p>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 30px; height: 30px; margin-top: 15px;">
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 2: Yusuf & Zainab -->
+                    <div class="rahmah-bottle-label label-2">
+                        <img src="assets/images/story-2.png"
+                            style="width: 100%; height: 180px; border-radius: 20px; object-fit: cover; margin-bottom: 15px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Yusuf & Zainab</h3>
+                        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 10px;">Married Dec 2024
+                        </p>
+                        <p style="color: #ccc; font-style: italic; font-size: 0.8rem; text-align: center;">"Living in
+                            Dubai, finding a partner from home was easy through Rahmah."</p>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 30px; height: 30px; margin-top: 15px;">
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 3: Abdullah & Aysha -->
+                    <div class="rahmah-bottle-label label-3">
+                        <img src="assets/images/story-3.png"
+                            style="width: 100%; height: 180px; border-radius: 20px; object-fit: cover; margin-bottom: 15px;">
+                        <h3 style="color: white; margin-bottom: 5px;">Abdullah & Aysha</h3>
+                        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 10px;">Married Nov 2024
+                        </p>
+                        <p style="color: #ccc; font-style: italic; font-size: 0.8rem; text-align: center;">"Finding
+                            someone who shares my dedication to deen was my priority."</p>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 30px; height: 30px; margin-top: 15px;">
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+
+                    <!-- Face 4: Call to action -->
+                    <div class="rahmah-bottle-label label-4">
+                        <div style="margin: 40px 0; text-align: center;">
+                            <i class="fas fa-heart"
+                                style="font-size: 4rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                            <h3 style="color: white;">Plan Your Story</h3>
+                            <p style="color: #ccc; margin-top: 10px; font-size: 0.9rem;">Start your journey towards a
+                                blessed marriage.</p>
+                        </div>
+                        <a href="register.html" class="btn" style="width: 100%; padding: 15px;">Create Your Account</a>
+                        <p style="color: #666; font-size: 0.6rem; margin-top: 10px; font-style: italic;">Tap bottle to
+                            roll</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                let storiesRotation = 0;
+                function rotateStories(deg) {
+                    storiesRotation += deg;
+                    document.getElementById('stories-bottle').style.transform = `rotateY(${storiesRotation}deg)`;
+                }
+            </script>
+        </div>
+    </section>
+
+    <div style="text-align: center; margin-top: -10px; margin-bottom: 50px; position: relative; z-index: 5;">
+        <a href="register.html" class="btn" style="padding: 15px 50px; font-weight: 800;">Find Your Partner Today</a>
+    </div>
+    </div>
+    </section>
+
+    <!-- Footer (Elite Style) -->
+    <footer>
+        <div class="container">
+            <!-- FontAwesome -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+            <div class="footer-top">
+                <!-- Column 1: Left Info -->
+                <div class="app-left">
+                    <div class="footer-logo-row">
+                        <img src="assets/images/logo.png" class="logo-embossed" alt="Logo">
+                        <span>RAHMAH GLOBAL</span>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <h4 style="color:white; font-size: 0.9rem; margin-bottom: 8px;">FOLLOW US</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Contact Info -->
+                <div class="contact-info" style="display: flex; flex-direction: column; gap: 10px;">
+                    <h4 style="color:white; font-size: 0.9rem; margin-bottom: 5px;">CONTACT US</h4>
+                    <a href="mailto:support@rahmah.lk"
+                        style="display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 0.9rem; text-decoration: none;">
+                        <i class="fas fa-envelope" style="color: var(--accent-gold);"></i>
+                        <span>support@rahmah.lk</span>
+                    </a>
+                    <a href="https://wa.me/94717654576" target="_blank"
+                        style="display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 0.9rem; text-decoration: none;">
+                        <i class="fab fa-whatsapp" style="color: var(--accent-gold); font-size: 1.1rem;"></i>
+                        <span>+94 71 765 4576</span>
+                    </a>
+                </div>
+
+                <!-- Column 3: App Buttons & Language -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="app-buttons">
+                        <div class="app-btn">
+                            <i class="fab fa-apple"></i>
+                            <div class="btn-text">Download on the<strong>App Store</strong></div>
+                        </div>
+                        <div class="app-btn">
+                            <i class="fab fa-google-play" style="color: #00d4ff;"></i>
+                            <div class="btn-text">GET IT ON<strong>Google Play</strong></div>
+                        </div>
+                    </div>
+                    <!-- Language Selector (Footer) -->
+                    <div style="margin-top: 10px;">
+                        <div id="google_translate_element_footer"></div>
+                    </div>
+                </div>
+
+                <div class="trust-icons">
+                    <div class="trust-item">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Best Matches</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Verified Profiles</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-lock"></i>
+                        <span>100% Privacy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-bar"
+            style="background: linear-gradient(90deg, #8B4513, #E0AA3E, #8B4513); color: white; font-weight: bold; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); padding: 15px; font-size: 0.9rem; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 1px 1px 2px black;">
+            <p style="margin-bottom: 5px;">The Above Presentation Is Provided Solely For The Purpose Of Demonstrating
+                The Services And Potential Of Rahmah Global Groups. It Is A Sample Of How Our Services Are Structured.
+            </p>
+            <p style="margin-bottom: 5px; font-size: 0.8rem;">மேற்கண்ட விளக்கக்காட்சி ரஹ்மா குளோபல் குழுமங்களின் சேவைகள்
+                மற்றும் திறனை வெளிப்படுத்தும் நோக்கத்திற்காக மட்டுமே வழங்கப்படுகிறது.</p>
+            <p style="margin-bottom: 0; font-size: 0.8rem;">ඉහත ඉදිරිපත් කිරීම රහ්මා ග්ලෝබල් සමූහයේ සේවාවන් සහ විභවයන්
+                ප්‍රදර්ශනය කිරීමේ අරමුණින් පමණක් සපයනු ලැබේ.</p>
+        </div>
+
+        <div class="copyright" style="text-align: center; padding: 20px 0;">
+            &copy; 2026 Rahmah Global Group. All Rights Reserved. | <a href="admin.html" style="color:#555">Admin
+                Login</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ta,si',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element_footer');
+        }
+
+        // Live Clock - Sri Lanka Time Only
+        function updateClock() {
+            const now = new Date();
+
+            // Explicitly convert to Sri Lanka Time (UTC+5:30)
+            const optionsTime = { timeZone: 'Asia/Colombo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            const optionsDate = { timeZone: 'Asia/Colombo', weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+            const timeString = now.toLocaleTimeString('en-US', optionsTime);
+            const dateString = now.toLocaleDateString('en-US', optionsDate);
+
+            const timeEl = document.getElementById('digital-clock-time');
+            const dateEl = document.getElementById('digital-clock-date');
+
+            if (timeEl) timeEl.innerText = timeString;
+            if (dateEl) dateEl.innerText = dateString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+</body>
+
+</html>

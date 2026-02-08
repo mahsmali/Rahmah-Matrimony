@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Rahmah Global</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #121212;
+            /* Deep Dark Background */
+            color: #e0e0e0;
+        }
+
+        .admin-section {
+            padding: 140px 0 60px 0;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #1e1e1e;
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .dashboard-header h1 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        /* Card Style */
+        .admin-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            border: 1px solid #333;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .tab-menu {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 12px 25px;
+            border-radius: 8px 8px 0 0;
+            transition: 0.3s;
+            color: #888;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .tab:hover {
+            color: #fff;
+            background: #2a2a2a;
+        }
+
+        .tab.active {
+            background: var(--accent-gold);
+            color: black;
+            font-weight: bold;
+            border-color: var(--accent-gold);
+        }
+
+        /* Table Styling */
+        .admin-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            /* Space between rows */
+            margin-top: 10px;
+        }
+
+        .admin-table th {
+            text-align: left;
+            padding: 15px;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+        }
+
+        .admin-table tbody tr {
+            background: #252525;
+            transition: 0.3s;
+        }
+
+        .admin-table tbody tr:hover {
+            transform: translateY(-2px);
+            background: #2a2a2a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-table td {
+            padding: 15px;
+            vertical-align: middle;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .admin-table td:first-child {
+            border-left: 1px solid #333;
+            border-radius: 8px 0 0 8px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .admin-table td:last-child {
+            border-right: 1px solid #333;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .status-paid {
+            color: #4caf50;
+            font-weight: bold;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .status-pending {
+            color: #ff9800;
+            font-weight: bold;
+            background: rgba(255, 152, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #E0AA3E, #B8860B);
+            border: none;
+            color: black;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(224, 170, 62, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="assets/images/logo.png" class="logo-embossed" alt="Rahmah Admin">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="btn"
+                            style="background: transparent; border: 1px solid #444;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="admin-section">
+        <div class="container dashboard-container">
+
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p style="color: #888; margin-top: 5px; font-size: 0.9rem;">Clean, intuitive control at your
+                        fingertips.</p>
+                </div>
+                <div class="badge"
+                    style="background: rgba(255,255,255,0.1); border: 1px solid #444; position: static; transform: none; display: flex; align-items: center; gap: 10px;">
+                    <span style="width: 10px; height: 10px; background: #4caf50; border-radius: 50%;"></span>
+                    Logged in as Admin
+                </div>
+            </div>
+
+            <!-- Main Content Card -->
+            <div class="admin-card">
+                <div class="tab-menu">
+                    <div class="tab active" onclick="showTab('payments')">Recent Payments</div>
+                    <div class="tab" onclick="showTab('requests')">User Requests</div>
+                    <div class="tab" onclick="showTab('users')">All Users</div>
+                </div>
+
+                <!-- Payments Tab -->
+                <div id="payments" class="tab-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                        <h3 style="color:white;">Recent Transactions</h3>
+                        <button style="background:none; border:none; color:var(--accent-gold); cursor:pointer;">View All
+                            ></button>
+                    </div>
+
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Plan</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div
+                                            style="width:30px; height:30px; background:#444; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;">
+                                            MA</div>
+                                        <div>Mohamed A.<br><span style="font-size:0.7rem; color:#888;">ID: 4421</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Local (Sri Lanka)</td>
+                                <td>Rs. 599</td>
+                                <td>2026-01-29</td>
+                                <td><span class="status-paid">Paid</span></td>
+                                <td><button class="action-btn">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div
+                                            style="width:30px; height:30px; background:#444; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;">
+                                            SJ</div>
+                                        <div>Sarah J.<br><span style="font-size:0.7rem; color:#888;">ID: 9982</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Overseas</td>
+                                <td>$ 5.00</td>
+                                <td>2026-01-29</td>
+                                <td><span class="status-paid">Paid</span></td>
+                                <td><button class="action-btn">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div
+                                            style="width:30px; height:30px; background:#444; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem;">
+                                            KP</div>
+                                        <div>Kamal P.<br><span style="font-size:0.7rem; color:#888;">ID: 1123</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Local (Sri Lanka)</td>
+                                <td>Rs. 599</td>
+                                <td>2026-01-28</td>
+                                <td><span class="status-pending">Pending</span></td>
+                                <td><button class="action-btn" style="background: #555; color: white;">Verify</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Requests Tab -->
+                <div id="requests" class="tab-content" style="display:none;">
+                    <h3 style="color:white; margin-bottom: 20px;">User Modification Requests</h3>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Request Type</th>
+                                <th>Details</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zainab M.</td>
+                                <td>Update Profile Photo</td>
+                                <td>New photo uploaded for approval</td>
+                                <td><span class="status-pending">Pending</span></td>
+                                <td><button class="action-btn"
+                                        onclick="alert('Profile Updated Successfully!')">Approve</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+
+            // Show selected
+            document.getElementById(tabName).style.display = 'block';
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - Rahmah Global Matrimony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        /* Pricing Page Fixes */
+        .pricing-section {
+            padding: 200px 0 100px 0;
+            /* Significantly increased to clear the large header */
+            padding-left: 200px;
+            min-height: 100vh;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        /* 3D Bottle Container */
+        .bottle-container {
+            perspective: 2000px;
+            width: 340px;
+            /* Increased Width */
+            height: 620px;
+            /* Increased Height to fit content */
+            margin: 0 auto;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        /* The Bottle Shape */
+        .pricing-bottle {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: grab;
+        }
+
+        /* Rolling Logic Classes */
+        .bottle-face-0 {
+            transform: rotateY(0deg);
+        }
+
+        .bottle-face-1 {
+            transform: rotateY(-90deg);
+        }
+
+        .bottle-face-2 {
+            transform: rotateY(-180deg);
+        }
+
+        .bottle-face-3 {
+            transform: rotateY(-270deg);
+        }
+
+        .bottle-label {
+            position: absolute;
+            width: 300px;
+            /* Increased Width */
+            height: 600px;
+            /* Increased Height */
+            left: 20px;
+            top: 10px;
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            /* iPhone-style Thick Metal Edge */
+            border: 10px solid #E0AA3E;
+            border-radius: 50px;
+            /* Slightly more rounded for that iPhone corners look */
+            padding: 30px 15px 80px 15px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow:
+                inset 0 0 20px rgba(0, 0, 0, 0.8),
+                /* Inner depth */
+                0 20px 50px rgba(0, 0, 0, 0.8),
+                /* Outer drop shadow */
+                0 0 0 1px rgba(0, 0, 0, 1);
+            /* Separation line */
+            transition: border-color 0.5s;
+        }
+
+        /* Internal Sparkling Lighting Effect */
+        .bottle-label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(224, 170, 62, 0.3) 0%, transparent 60%);
+            pointer-events: none;
+            border-radius: 40px;
+        }
+
+        .bottle-label::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Positioning 6 Faces for Hexagonal Bottle (Resized) */
+        /* d ~ 300px for width 340 approx */
+        .label-1 {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+
+        .label-2 {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        .label-3 {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        .label-4 {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .label-5 {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        .label-6 {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+
+        /* Bottle Glass Body */
+        .glass-body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 60px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.05) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: inset 0 0 100px rgba(224, 170, 62, 0.05);
+        }
+
+        /* Highlight Text updated */
+        .highlight-text {
+            background: rgba(224, 170, 62, 0.15);
+            padding: 10px 25px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50px;
+            box-shadow: 0 0 30px rgba(224, 170, 62, 0.3);
+            color: var(--accent-gold) !important;
+            font-size: 1.2rem;
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 20px rgba(224, 170, 62, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(224, 170, 62, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(224, 170, 62, 0.2);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .pricing-section {
+                padding-left: 0;
+            }
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-auto-rows: 1fr;
+            gap: 15px;
+            /* Reduced gap */
+            margin-top: 10px;
+            /* Lifted up another 50px (was 60, now 10) */
+            max-width: 1150px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 15px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 1px solid #222;
+            border-radius: 20px;
+            /* Smaller radius */
+            border-bottom: 8px solid #000;
+            /* Further reduced */
+            padding: 15px 10px;
+            /* Massive reduction */
+            transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            transform: perspective(1000px) rotateX(8deg);
+            /* Shallower tilt */
+            transform-origin: center bottom;
+        }
+
+        /* Color Themes for Cards */
+        .pricing-card.silver {
+            border-top: 4px solid #888;
+        }
+
+        .pricing-card.blue {
+            border-top: 4px solid #00d4ff;
+        }
+
+        .pricing-card.green {
+            border-top: 4px solid #4CAF50;
+        }
+
+        .pricing-card.gold {
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        /* Inner Glowing Borders (Responsive to Themes) */
+        .pricing-card.silver::before {
+            border-color: rgba(136, 136, 136, 0.4);
+            box-shadow: inset 0 0 10px rgba(136, 136, 136, 0.2);
+        }
+
+        .pricing-card.blue::before {
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-card.green::before {
+            border-color: rgba(76, 175, 80, 0.4);
+            box-shadow: inset 0 0 10px rgba(76, 175, 80, 0.2);
+        }
+
+        .pricing-card.gold::before {
+            border-color: rgba(224, 170, 62, 0.4);
+            box-shadow: inset 0 0 10px rgba(224, 170, 62, 0.2);
+        }
+
+        /* Logo Styling Override */
+        .pricing-card img,
+        .bottle-label img {
+            width: 80px !important;
+            height: 80px !important;
+            margin-bottom: 20px !important;
+            border: none !important;
+            border-radius: 50% !important;
+            padding: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            opacity: 1 !important;
+            filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 1)) drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.3)) !important;
+        }
+
+        /* Hover Effect: Straighten Up */
+        .pricing-card:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            border-bottom-width: 10px;
+            /* Thins out as it lifts/straightens */
+            border-color: var(--accent-gold);
+            box-shadow: 0 40px 80px rgba(224, 170, 62, 0.2);
+        }
+
+        /* Popular Card Highlight */
+        .pricing-card.popular {
+            background: linear-gradient(145deg, #251e0a, #1a1405);
+            border: 1px solid var(--accent-gold);
+            border-bottom: 15px solid #8a6608;
+            z-index: 2;
+            box-shadow: 0 40px 80px rgba(224, 170, 62, 0.1);
+        }
+
+        .pricing-card.popular::before {
+            border-color: var(--accent-gold);
+            box-shadow: inset 0 0 20px rgba(224, 170, 62, 0.5), 0 0 20px rgba(224, 170, 62, 0.4);
+        }
+
+        .pricing-card.popular:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+            box-shadow: 0 50px 100px rgba(224, 170, 62, 0.3);
+            border-bottom-width: 10px;
+        }
+
+        /* Popular Badge */
+        /* Popular Badge - Heavy Duty Tag */
+        /* Popular Badge - Restored Corner Ribbon */
+        /* Popular Badge - Restored Corner Ribbon (Adjusted to clear text) */
+        .badge {
+            background: linear-gradient(90deg, #FFD700, #B8860B);
+            color: black;
+            padding: 5px 40px;
+            position: absolute;
+            top: 15px;
+            /* Moved Up */
+            right: -45px;
+            /* Moved Right */
+            transform: rotate(45deg);
+            font-weight: 900;
+            font-size: 0.75rem;
+            /* Slightly smaller to fit */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            z-index: 25;
+            border: 2px solid white;
+            white-space: nowrap;
+            pointer-events: none;
+            /* Ensure clicks pass through */
+        }
+
+
+
+        .plan-name {
+            font-size: 0.95rem;
+            /* Reduced */
+            font-weight: 800;
+            color: white;
+            margin-bottom: 3px;
+            line-height: 1.2;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            /* Reduced */
+            font-weight: 900;
+            margin: 2px 0;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .price span {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: #888;
+        }
+
+        .card-subtitle {
+            font-size: 0.65rem;
+            /* Reduced */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        .helper-line {
+            font-size: 0.7rem;
+            /* Reduced */
+            color: #888;
+            font-style: italic;
+            margin: 5px 0;
+            min-height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 20px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 10px 0 !important;
+            font-size: 0.8rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            color: #ddd;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .check-icon {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .btn-plan {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+
+            /* Integrated Bottom Cap */
+            border: none;
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 0 0 38px 38px;
+            /* Adjusted for new thicker 10px border */
+
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            color: var(--accent-gold);
+
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .pricing-card.popular .btn-plan {
+            background: var(--accent-gold);
+            color: black;
+            box-shadow: 0 -10px 30px rgba(224, 170, 62, 0.3);
+        }
+
+        .btn-plan:hover {
+            height: 70px;
+            /* Expands up slightly */
+            background: var(--accent-gold);
+            color: black;
+            font-size: 1.1rem;
+            box-shadow: 0 -20px 40px rgba(224, 170, 62, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header with Animation -->
+    <header>
+        <div class="container nav-container" style="position: relative;">
+            <!-- Left: Clock (Moved from Center) -->
+            <div class="header-clock" style="display: flex; flex-direction: column; gap: 2px; text-align: center;">
+                <div id="digital-clock-time"
+                    style="font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; color: white; letter-spacing: 2px;">
+                    <!-- Time -->
+                </div>
+                <div id="digital-clock-date"
+                    style="font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 600; color: #ccc; letter-spacing: 1px;">
+                    <!-- Date -->
+                </div>
+            </div>
+
+            <!-- Right: Logo (Text First) -->
+            <div class="logo-wrapper" style="display: flex; align-items: center; gap: 15px;">
+                <!-- Logo Text -->
+                <div class="logo-text"
+                    style="display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 5px; text-align: right;">
+                    <span
+                        style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.2rem; color: #E0AA3E; letter-spacing: 1px; line-height: 1;">RAHMAH
+                        GLOBAL MATRIMONY</span>
+                    <span
+                        style="font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem; color: white; letter-spacing: 5.5px; text-transform: uppercase; line-height: 1;">SRI
+                        LANKA</span>
+                </div>
+                <div class="logo">
+                    <img src="assets/images/logo.png" alt="Rahmah Global">
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation (Hanging Below Header) -->
+            <div class="vertical-sidebar"
+                style="position: absolute; top: 100%; left: 0; margin-top: 10px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+                <nav>
+                    <ul
+                        style="display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0; margin: 0;">
+                        <li><a href="index.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Home</a></li>
+                        <li><a href="membership.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Pricing</a></li>
+                        <li><a href="advertise.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Advertisers</a></li>
+                        <li><a href="register.html" class="btn nav-btn"
+                                style="display: block; width: 160px; text-align: center;">Login / Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h1
+                style="font-size: 3.5rem; margin-bottom: 25px; color: white; text-shadow: 0 0 20px rgba(224, 170, 62, 0.6); display: block;">
+                Premium <span style="color: var(--accent-gold);">Access</span>
+            </h1>
+
+            <p style="color: #ccc; font-weight: bold; margin: 0 auto 50px auto; display: block; width: fit-content;">
+                <span class="highlight-text">
+                    <i class="fas fa-check-double" style="margin-right: 8px;"></i>
+                    Pay only when you want to view a full profile and Contact Number.
+                </span>
+            </p>
+
+            <div class="bottle-container">
+                <div class="glass-body"></div>
+                <div class="pricing-bottle" id="price-bottle" onclick="rotateBottle(60)">
+                    <!-- Face 1: Local Single -->
+                    <div class="bottle-label label-1">
+                        <div class="card-subtitle">For members in Sri Lanka</div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 50px; height: 50px; margin-bottom: 15px;">
+                        <div class="plan-name" style="font-size: 1.2rem;">1 Profile Unlock</div>
+                        <div class="price" style="font-size: 2.5rem;">599<span> LKR</span></div>
+                        <div style="font-size: 1rem; font-weight: 800; color: white; margin: 15px 0;">Unlock 1 Profile
+                            Contact</div>
+                        <div class="divider" style="background: #888;"></div>
+                        <ul class="features-list">
+                            <li><span class="check-icon">✓</span> Full Bio Access</li>
+                            <li><span class="check-icon">✓</span> WhatsApp Number</li>
+                            <li><span class="check-icon">✓</span> Instant Unlock</li>
+                        </ul>
+                        <div class="helper-line">Best for one-time contact</div>
+                        <button class="btn-plan" onclick="handlePayment('LocalSingle')">UNLOCK 1 PROFILE</button>
+                    </div>
+
+                    <!-- Face 2: Local 10-Pack -->
+                    <div class="bottle-label label-2" style="border-color: #4CAF50;">
+                        <div class="card-subtitle" style="color: #4CAF50;">Bundle Savings (Sri Lanka)</div>
+                        <div class="badge">BEST DEAL</div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 50px; height: 50px; margin-bottom: 15px;">
+                        <div class="plan-name" style="font-size: 1.2rem;">10 Profile Unlocks</div>
+                        <div class="price" style="font-size: 2.5rem; color: #4CAF50;">5,000<span> LKR</span></div>
+                        <div style="font-size: 1rem; font-weight: 800; color: white; margin: 15px 0;">Unlock 10 Profile
+                            Contacts</div>
+                        <div class="divider" style="background: #4CAF50;"></div>
+                        <ul class="features-list">
+                            <li><span class="check-icon" style="color:#4CAF50">✓</span> 10 Unlock Credits</li>
+                            <li><span class="check-icon" style="color:#4CAF50">✓</span> Lower Price/Unlock</li>
+                            <li><span class="check-icon" style="color:#4CAF50">✓</span> WhatsApp Access</li>
+                        </ul>
+                        <div class="helper-line">Best for serious searchers</div>
+                        <button class="btn-plan" onclick="handlePayment('Local')" style="background: #4CAF50;">BUY 10
+                            UNLOCKS</button>
+                    </div>
+
+                    <!-- Face 3: Global Single -->
+                    <div class="bottle-label label-3" style="border-color: #00d4ff;">
+                        <div class="card-subtitle" style="color: #00d4ff;">Overseas Members</div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 50px; height: 50px; margin-bottom: 15px;">
+                        <div class="plan-name" style="font-size: 1.2rem;">1 Profile Unlock</div>
+                        <div class="price" style="font-size: 2.5rem; color: #00d4ff;">5<span> USD</span></div>
+                        <div style="font-size: 1rem; font-weight: 800; color: white; margin: 15px 0;">Unlock 1 Profile
+                            Contact</div>
+                        <div class="divider" style="background: #00d4ff;"></div>
+                        <ul class="features-list">
+                            <li><span class="check-icon" style="color:#00d4ff">✓</span> Full Bio Access</li>
+                            <li><span class="check-icon" style="color:#00d4ff">✓</span> WhatsApp Number</li>
+                            <li><span class="check-icon" style="color:#00d4ff">✓</span> Overseas Secure Pay</li>
+                        </ul>
+                        <div class="helper-line">Pay from outside Sri Lanka</div>
+                        <button class="btn-plan" onclick="handlePayment('OverseasSingle')"
+                            style="background: #00d4ff;">UNLOCK 1 PROFILE</button>
+                    </div>
+
+                    <!-- Face 4: Global 10-Pack -->
+                    <div class="bottle-label label-4" style="border-color: var(--accent-gold);">
+                        <div class="card-subtitle">Global Bundle Value</div>
+                        <div class="badge">BEST DEAL</div>
+                        <img src="assets/images/logo.png" class="logo-embossed"
+                            style="width: 50px; height: 50px; margin-bottom: 15px;">
+                        <div class="plan-name" style="font-size: 1.2rem;">10 Profile Unlocks</div>
+                        <div class="price" style="font-size: 2.5rem;">40<span> USD</span></div>
+                        <div style="font-size: 1rem; font-weight: 800; color: white; margin: 15px 0;">Unlock 10 Profile
+                            Contacts</div>
+                        <div class="divider" style="background: var(--accent-gold);"></div>
+                        <ul class="features-list">
+                            <li><span class="check-icon">✓</span> 10 Unlock Credits</li>
+                            <li><span class="check-icon">✓</span> No Expiry Date</li>
+                            <li><span class="check-icon">✓</span> Best Value (USD)</li>
+                        </ul>
+                        <div class="helper-line">Ideal for active overseas users</div>
+                        <button class="btn-plan" onclick="handlePayment('Overseas')">GET 10 UNLOCKS</button>
+                    </div>
+
+                    <!-- Face 5: Future Offer 1 -->
+                    <div class="bottle-label label-5" style="border-color: #9c27b0; opacity: 0.8 !important;">
+                        <div class="card-subtitle" style="color: #9c27b0;">Coming Soon</div>
+                        <i class="fas fa-gift" style="font-size: 50px; color: #9c27b0; margin-bottom: 20px;"></i>
+                        <div class="plan-name" style="font-size: 1.5rem; text-align: center;">Ramadan Special</div>
+                        <div style="font-size: 1rem; color: #ccc; margin: 20px 0; text-align: center;">
+                            Special discounts and features for the holy month.
+                        </div>
+                        <div class="divider" style="background: #9c27b0;"></div>
+                        <button class="btn-plan"
+                            style="cursor: default; border-color: #555; color: #555; box-shadow: none;">STAY
+                            TUNED</button>
+                    </div>
+
+                    <!-- Face 6: Future Offer 2 -->
+                    <div class="bottle-label label-6" style="border-color: #ff5722; opacity: 0.8 !important;">
+                        <div class="card-subtitle" style="color: #ff5722;">Future Update</div>
+                        <i class="fas fa-gem" style="font-size: 50px; color: #ff5722; margin-bottom: 20px;"></i>
+                        <div class="plan-name" style="font-size: 1.5rem; text-align: center;">Platinum Elite</div>
+                        <div style="font-size: 1rem; color: #ccc; margin: 20px 0; text-align: center;">
+                            Exclusive matchmaking service for elite members.
+                        </div>
+                        <div class="divider" style="background: #ff5722;"></div>
+                        <button class="btn-plan"
+                            style="cursor: default; border-color: #555; color: #555; box-shadow: none;">COMING
+                            SOON</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;"></div>
+        </div>
+    </section>
+
+    <script>
+        let currentRotation = 0;
+        function rotateBottle(deg) {
+            currentRotation += deg;
+            document.getElementById('price-bottle').style.transform = `rotateY(${currentRotation}deg)`;
+        }
+
+        // Add auto-roll hint every 10 seconds if not touched
+        setInterval(() => {
+            // rotateBottle(90); // Uncomment if you want auto-rotation
+        }, 10000);
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
